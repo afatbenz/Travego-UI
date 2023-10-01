@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+// import Home from './components/layout/Home';
+// import Dashboard from './components/layout/Dashboard'
+import Services from './components/layout/Services';
+
+const loading = (
+  <div className="pt-3 text-center">
+    <div className="sk-spinner sk-spinner-pulse"></div>
+  </div>
+)
+
+// Containers
+const DefaultLayout = React.lazy(() => import('./layout/defaultLayout'))
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Suspense fallback={loading}>
+      <Routes>
+          <Route path="*" name="Home" element={<DefaultLayout />} />
+          <Route path="/" name="Home" element={<DefaultLayout />} />
+          <Route index element={<DefaultLayout />} />
+          <Route path='services' element={<Services />} />
+        {/* <Route path="/services" element={<Services />} /> */}
+        {/* <Route path="/logout" element={<Home />} /> */}
+      </Routes>
+      </Suspense>
+    </Router>
+  )
 }
 
 export default App;
