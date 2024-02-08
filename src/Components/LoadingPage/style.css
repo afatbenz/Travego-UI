@@ -1,0 +1,55 @@
+/* LoadingPage.css */
+
+.loading-button-container {
+    display: inline-block;
+    margin-right: 5px;
+}
+  
+.loading-button-spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3498db;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    animation: spin 1s linear infinite;
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.skeleton-container {
+  width: 90%;
+  max-width: 600px; /* Sesuaikan dengan lebar konten Anda */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.skeleton-container-middle {
+    width: 50%;
+    max-width: 600px; /* Sesuaikan dengan lebar konten Anda */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-left: 15px;
+  }
+
+.skeleton-content {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px;
+  }
+  100% {
+    background-position: 1000px;
+  }
+}
+  
